@@ -9,6 +9,7 @@ class About extends Controller{
         $data['judul'] = 'About Index';
         
         //buka file melalui method view dan kirim data
+        //tampilkan halaman
         $this->view('templates/header',$data); 
         $this->view('about/index', $data);
         $this->view('templates/footer');
@@ -16,6 +17,7 @@ class About extends Controller{
     public function page(){
         $data['judul'] = 'About Page';
         //buka file melalui method view
+        //tampilkan halaman
         $this->view('templates/header',$data);
         $this->view('about/page');
         $this->view('templates/footer');
