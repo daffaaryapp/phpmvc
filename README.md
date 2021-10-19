@@ -1,3 +1,3 @@
 # phpmvc
 
-REPOSITORY PHPMVC ini bertujuan untuk dalam belajar mvc di channel wpuunpas
+REPOSITORY PHPMVC ini bertujuan untuk membantu saya dalam belajar mvc di channel wpuunpas
