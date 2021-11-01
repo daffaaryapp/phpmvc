@@ -1,6 +1,11 @@
 <div class="container mt-3">
     <div class="row">
-        <div class="col-6">
+      <div class="col-lg-6">
+          <?php Flasher::flash() ?>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-6">
             <!-- Button trigger modal -->
             <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#formModal">
             Tambah Data Mahasiswa
