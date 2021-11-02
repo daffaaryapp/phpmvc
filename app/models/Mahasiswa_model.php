@@ -35,4 +35,14 @@ class Mahasiswa_model {
         //menghitung jumlah data yg bertambah dan berkurang
         return $this->db->rowCount();
     }
+
+    public function hapusDataMahasiswa($id){
+        $query = "DELETE FROM mahasiswa WHERE id = :id";
+        $this->db->query($query);
+        $this->db->bind('id',$id);
+        //eksekusi
+        $this->db->execute();
+        //menghitung jumlah data yg bertambah dan berkurang
+        return $this->db->rowCount();                                    
+    }
 }

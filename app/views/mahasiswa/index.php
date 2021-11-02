@@ -13,9 +13,10 @@
             <h3>DAFTAR MAHASISWA</h3>
             <?php foreach($data['mhs'] as $mhs): ?>
             <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center">
+                <li class="list-group-item ">
                     <?= $mhs['nama']; ?>
-                    <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id'] ?>" class="badge bg-primary " style="text-decoration: none;">detail</a>
+                    <a  href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs['id'] ?>" class="badge bg-danger float-end " onclick="return confirm('yakin');" style="text-decoration: none;">hapus</a>
+                    <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id'] ?>" class="badge bg-primary float-end me-2" style="text-decoration: none;">detail</a>
                 </li>
             </ul>
             <?php endforeach; ?>
@@ -65,3 +66,30 @@
     <!-- akhir form -->
     </div>
   </div>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="sweetalert2.all.min.js"></script>
+  <script>
+    document.querySelector(".bisa").onclick = function() {myFunction()};
+
+    function myFunction() {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            'Deleted!',
+            'Your file has been deleted.',
+            'success'
+          )
+        }
+    })
+    }
+    
+  </script>
+  
