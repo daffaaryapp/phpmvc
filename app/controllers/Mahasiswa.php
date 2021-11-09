@@ -30,13 +30,13 @@ class Mahasiswa extends Controller {
         
         if($this->model('Mahasiswa_model')->tambahDataMahasiswa($_POST) > 0) {
             //jika berhasil kirimkan alert berhasil
-            Flasher::setFlash('','berhasil','ditambah','success');
+            Flasher::setFlash($_POST['nama'],'berhasil','ditambah','success');
             //redirect ke halaman mahasiswa
             header('Location: '.BASEURL.'/mahasiswa');
             exit;
         }else {
             //jika gagal kirimkan alert gagal
-            Flasher::setFlash('','gagal','di','danger');
+            Flasher::setFlash($_POST['nama'],'gagal','ditambah','danger');
             //redirect ke halaman mahasiswa
             header('Location: '.BASEURL.'/mahasiswa');
             exit;
@@ -56,6 +56,26 @@ class Mahasiswa extends Controller {
         }else {
             //jika gagal kirimkan alert gagal
             Flasher::setFlash($data['mhs']['nama'],'gagal','dihapus','danger');
+            //redirect ke halaman mahasiswa
+            header('Location: '.BASEURL.'/mahasiswa');
+            exit;
+        }
+    }
+
+    public function getUbah(){
+        echo json_encode($this->model('Mahasiswa_model')->getMahasiswaById($_POST['id']));
+    }
+
+    public function edit(){
+        if($this->model('Mahasiswa_model')->editDataMahasiswa($_POST) > 0) {
+            //jika berhasil kirimkan alert berhasil
+            Flasher::setFlash($_POST['nama'],'berhasil','diedit','success');
+            //redirect ke halaman mahasiswa
+            header('Location: '.BASEURL.'/mahasiswa');
+            exit;
+        }else {
+            //jika gagal kirimkan alert gagal
+            Flasher::setFlash($_POST['nama'],'gagal','diedit','danger');
             //redirect ke halaman mahasiswa
             header('Location: '.BASEURL.'/mahasiswa');
             exit;

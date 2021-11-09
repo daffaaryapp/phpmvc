@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-lg-6">
             <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#formModal">
+            <button type="button" class="btn btn-primary mb-3 tombolTambah" data-bs-toggle="modal" data-bs-target="#formModal">
             Tambah Data Mahasiswa
             </button>
             <h3>DAFTAR MAHASISWA</h3>
@@ -16,6 +16,7 @@
                 <li class="list-group-item ">
                     <?= $mhs['nama']; ?>
                     <a  href="<?= BASEURL ?>/mahasiswa/hapus/<?= $mhs['id'] ?>" class="badge bg-danger float-end " onclick="return confirm('yakin');" style="text-decoration: none;">hapus</a>
+                    <a href="<?= BASEURL ?>/mahasiswa/edit/<?= $mhs['id'] ?>" class="badge bg-success float-end me-2 tampilModalUbah" style="text-decoration: none; " data-bs-toggle="modal" data-bs-target="#formModal" data-id="<?= $mhs['id'];?>">edit</a>
                     <a href="<?= BASEURL ?>/mahasiswa/detail/<?= $mhs['id'] ?>" class="badge bg-primary float-end me-2" style="text-decoration: none;">detail</a>
                 </li>
             </ul>
@@ -36,6 +37,8 @@
       <div class="modal-body">
     <!-- awal form -->
     <form action="<?= BASEURL?>/mahasiswa/tambah" method="post">
+    <!-- input id dengan hidden -->
+    <input type="hidden" name="id" id="id">
         <div class="mb-3">
             <label for="nama" class="form-label">Nama</label>
             <input type="text" class="form-control" id="nama" name="nama" >
@@ -66,30 +69,7 @@
     <!-- akhir form -->
     </div>
   </div>
-  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-  <script src="sweetalert2.all.min.js"></script>
-  <script>
-    document.querySelector(".bisa").onclick = function() {myFunction()};
-
-    function myFunction() {
-      Swal.fire({
-        title: 'Are you sure?',
-        text: "You won't be able to revert this!",
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            'Deleted!',
-            'Your file has been deleted.',
-            'success'
-          )
-        }
-    })
-    }
+  
     
-  </script>
+  
   
