@@ -65,4 +65,14 @@ class Mahasiswa_model {
         //menghitung jumlah data yg bertambah dan berkurang
         return $this->db->rowCount();
     }
+
+    public function cariDataMahasiswa(){
+        $keyword = $_POST['keyword'];
+        $query = "SELECT * FROM mahasiswa WHERE nama LIKE :keyword";
+        // cari data di database
+        $this->db->query($query);
+        $this->db->bind('keyword',"%$keyword%");
+        //return dalam jumlah banyak
+        return $this->db->resultSet();
+    }
 }
